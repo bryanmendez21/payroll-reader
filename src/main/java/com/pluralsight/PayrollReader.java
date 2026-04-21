@@ -10,21 +10,29 @@ public class PayrollReader {
     public static void main(String[] args) throws IOException {
         FileReader fileReader = new FileReader("src/main/resources/employees.csv");
         BufferedReader bufReader = new BufferedReader(fileReader);
-        Employee employeeProfile = new Employee(  );
 
         String dataFromFile;
+        Employee[] employeeList = new Employee[10];
+        int counter = 0;
+
+        bufReader.readLine();
+        while ((dataFromFile = bufReader.readLine()) != null) {
 
 
-        while ((dataFromFile = bufReader.readLine()) != null){
 
             String[] splitData = dataFromFile.split(Pattern.quote("|"));
-
-            int employeeID = Integer.parseInt(splitData[0]);
-            String employeeName = splitData[1];
+            // Parse First
+            int employeeId = Integer.parseInt(splitData[0]);
+            String name = splitData[1];
             double hoursWorked = Double.parseDouble(splitData[2]);
             double payRate = Double.parseDouble(splitData[3]);
 
-            System.out.println(employeeID);
+            Employee employeeProfile = new Employee(employeeId, name, payRate,hoursWorked);
+            employeeList[counter] = employeeProfile;
+            counter++;
+
+
+            System.out.println(employeeList[0]);
 
 
         }

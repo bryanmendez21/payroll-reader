@@ -9,11 +9,17 @@ public class Employee {
     private double payRate;
 
     // Constructor
-    public Employee() {
-        this.name = null;
-        this.employeeId = 0;
-        this.hoursWorked = 0;
-        this.payRate = 0;
+    public Employee(int employeeId,String name,double payRate,double hoursWorked) {
+        this.name = name;
+        this.employeeId = employeeId;
+        this.hoursWorked = hoursWorked;
+        this.payRate = payRate;
+    }
+
+    // Method
+    public double getGrossPay(){
+
+        return payRate * hoursWorked;
     }
 
     // Name Setter and Getter
