@@ -4,12 +4,18 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class PayrollReader {
     public static void main(String[] args) throws IOException {
+        Scanner userInput = new Scanner(System.in);
         FileReader fileReader = new FileReader("src/main/resources/employees.csv");
         BufferedReader bufReader = new BufferedReader(fileReader);
+        System.out.print("Enter the name of the file employee file to process: ");
+        String nameOfFile = userInput.nextLine();
+        System.out.println("Enter the name of the payroll file to Create: ");
+
 
         String dataFromFile;
         Employee[] employeeList = new Employee[10];
