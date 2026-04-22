@@ -13,12 +13,13 @@ public class PayrollReader {
             System.out.print("Enter the name of the payroll file to Create: ");
             String fileCreated = userInput.nextLine();
 
-            FileReader fileReader = new FileReader("src/main/resources/"+nameOfFile);
+            FileReader fileReader = new FileReader("src/main/resources/" + nameOfFile);
             BufferedReader bufReader = new BufferedReader(fileReader);
-            FileWriter fileWriter = new FileWriter(fileCreated);
+            FileWriter fileWriter = new FileWriter("src/main/resources/" + fileCreated);
             BufferedWriter bufWriter = new BufferedWriter(fileWriter);
 
             if (nameOfFile.equalsIgnoreCase("employees.csv")) {
+                bufWriter.write("Id | Name | Gross Pay\n");
                 String dataFromFile;
                 bufReader.readLine();
                 while ((dataFromFile = bufReader.readLine()) != null) {
@@ -34,7 +35,6 @@ public class PayrollReader {
                     //System.out.printf("%d | %s | %.2f\n",employeeProfile.getEmployeeId(),employeeProfile.getName(),employeeProfile.getGrossPay());
 
                     String text;
-
                     text = String.format("%d | %s | $%.2f\n", employeeProfile.getEmployeeId(), employeeProfile.getName(), employeeProfile.getGrossPay());
                     bufWriter.write(text);
                 }
