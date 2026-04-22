@@ -18,8 +18,6 @@ public class PayrollReader {
         bufReader.readLine();
         while ((dataFromFile = bufReader.readLine()) != null) {
 
-
-
             String[] splitData = dataFromFile.split(Pattern.quote("|"));
             // Parse First
             int employeeId = Integer.parseInt(splitData[0]);
@@ -32,11 +30,9 @@ public class PayrollReader {
             counter++;
 
 
-            System.out.println(employeeList[0]);
-
 
         }
-
+        System.out.println(employeeList[1].getName());
     }
 
 }
