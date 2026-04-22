@@ -8,14 +8,13 @@ public class PayrollReader {
     public static void main(String[] args) throws IOException {
         try {
             Scanner userInput = new Scanner(System.in);
-            FileReader fileReader = new FileReader("src/main/resources/employees.csv");
-            BufferedReader bufReader = new BufferedReader(fileReader);
-
             System.out.print("Enter the name of the file employee file to process: ");
             String nameOfFile = userInput.nextLine();
             System.out.print("Enter the name of the payroll file to Create: ");
             String fileCreated = userInput.nextLine();
 
+            FileReader fileReader = new FileReader("src/main/resources/"+nameOfFile);
+            BufferedReader bufReader = new BufferedReader(fileReader);
             FileWriter fileWriter = new FileWriter(fileCreated);
             BufferedWriter bufWriter = new BufferedWriter(fileWriter);
 
@@ -36,7 +35,7 @@ public class PayrollReader {
 
                     String text;
 
-                    text = String.format("%d | %s | %.2f\n", employeeProfile.getEmployeeId(), employeeProfile.getName(), employeeProfile.getGrossPay());
+                    text = String.format("%d | %s | $%.2f\n", employeeProfile.getEmployeeId(), employeeProfile.getName(), employeeProfile.getGrossPay());
                     bufWriter.write(text);
                 }
                 bufWriter.close();
