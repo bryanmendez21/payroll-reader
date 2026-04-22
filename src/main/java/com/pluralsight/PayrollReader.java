@@ -32,7 +32,7 @@ public class PayrollReader {
 
 
         }
-        System.out.println(employeeList[1].getName());
+        System.out.printf("Employee: %s \nEmployee ID %d \nEmployee Gross Pay: %.2f",employeeList[1].getName(),employeeList[1].getEmployeeId(),employeeList[1].getGrossPay());
     }
 
 }
