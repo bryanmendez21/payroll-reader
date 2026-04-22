@@ -19,7 +19,7 @@ public class Employee {
     // Method
     public double getGrossPay(){
 
-        return payRate * hoursWorked;
+        return this.payRate * this.hoursWorked;
     }
 
     // Name Setter and Getter
